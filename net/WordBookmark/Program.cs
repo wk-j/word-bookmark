@@ -9,7 +9,7 @@ namespace WordBookmark
     {
         static void Main(string[] args)
         {
-            var path = Path.Combine("resource", "GitHub.doc");
+            var path = Path.Combine("resource", "Bookmark.doc");
             // var path = Path.Combine("resource", "GitHub.doc");
             var doc = new Document(path);
             var marks = doc.Range.Bookmarks;
