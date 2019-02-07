@@ -10,12 +10,17 @@
         "**/obj": true,
         "node_modules": true,
         ".cache": true,
-        "tools": true
+        "tools": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
     "search.exclude": {
         "node_modules": true,
         "dist": true,
         "build": true,
         ".cache": true
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

@@ -17,7 +17,10 @@ publish
 .working
 .publish
 
+Bookmark*.docx
 Bookmark*.doc
+
+*~*
 
 target
 BenchmarkDotNet.Artifacts
