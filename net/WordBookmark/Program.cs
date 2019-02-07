@@ -12,20 +12,18 @@ namespace WordBookmark {
 
     class Program {
         static void Main(string[] args) {
-            var path = Path.Combine("resource", "Bookmark.doc");
-            // var path = Path.Combine("resource", "GitHub.doc");
-            var doc = new Document(path);
-            // var marks = doc.Range.Bookmarks;
+            var files = new DirectoryInfo("resource").GetFiles("*.doc*");
+            foreach (var file in files) {
+                Console.WriteLine("~ {0}", file.FullName);
+                var doc = new Document(file.FullName);
+                // doc.RemoveMacros();
+                // doc.WarningCallback = new Callback();
+                var marks = doc.Sections.SelectMany(x => x.Range.Bookmarks);
 
-            doc.RemoveMacros();
-            doc.WarningCallback = new Callback();
-
-            var marks = doc.Sections.SelectMany(x => x.Range.Bookmarks);
-
-            foreach (var item in marks) {
-                Console.WriteLine(item.Name);
-                Console.WriteLine(item.Text);
-                Console.WriteLine("--------");
+                foreach (var item in marks) {
+                    Console.WriteLine("  > {0} ~~ {1}", item.Name, item.Text);
+                }
+                Console.WriteLine();
             }
         }
     }
